@@ -1,0 +1,13 @@
+.vs/
+.ipch/
+*.ipch
+*.VC.db
+[Bb]in/
+[Oo]bj/
+x64/
+x86/
+build/
+*.obj
+*.pdb
+*.ilk
+*.pch
