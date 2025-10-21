@@ -5,7 +5,9 @@
 #include <Windows.h>
 #include <format>
 #include "Window.h"
-
+#include "Mouse.h"
+#include <sstream>
+#include "App.h"
 
 
 int CALLBACK WinMain(_In_ HINSTANCE hInstance,
@@ -14,32 +16,7 @@ int CALLBACK WinMain(_In_ HINSTANCE hInstance,
 	_In_ int nCmdShow)
 {
 	try {
-		Window wmd(800, 300, L"Kinh lup Window");
-		//create window instance
-
-
-		//message pump
-		// khi có sự kiện xảy ra, thì handler của window đó được truyền vào trong msg (msg có con trỏ tới handle)
-		MSG msg;
-		BOOL gResult;
-		while ((gResult = GetMessageW(&msg, nullptr, 0, 0)) > 0)
-		{
-			// dịch từ thông điệp ảo sang thông điệp chuỗi kí tự để dispatch hiểu
-			TranslateMessage(&msg);
-			//dispacth gọi tới WndPro đăng kí trong class window
-			DispatchMessageW(&msg);
-			if (wmd.kbd.KeyIsPressed(VK_MENU))
-			{
-				MessageBox(nullptr, L"Something", L"Anuthing",MB_OK);
-			}
-		}
-		if (gResult == -1)
-		{
-			return -1;
-		}
-		else {
-			return msg.wParam;
-		}
+		return App{}.Go();
 	}
 	catch (const KinhLupException& e)
 	{

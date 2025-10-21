@@ -1,23 +1,5 @@
-﻿  Keyboard.cpp
-  KinhLupException.cpp
-  Mouse.cpp
-  Window.cpp
-  WindowsMessageMap.cpp
-  Winmain.cpp
-D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\ChiliWin.h(4,9): warning C4005: '_WIN32_WINNT': macro redefinition
-  (compiling source file 'Winmain.cpp')
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\sdkddkver.h(228,10):
-      see previous definition of '_WIN32_WINNT'
-  
-D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\ChiliWin.h(47,9): warning C4005: 'STRICT': macro redefinition
-  (compiling source file 'Winmain.cpp')
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\minwindef.h(23,9):
-      see previous definition of 'STRICT'
-  
-D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Window.cpp(51,9): warning C4003: not enough arguments for function-like macro invocation 'CHWND_LAST_EXCEPT'
-D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Window.cpp(62,9): warning C4003: not enough arguments for function-like macro invocation 'CHWND_LAST_EXCEPT'
-D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Winmain.cpp(41,14): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
-D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Winmain.cpp(57,1): warning C4715: 'WinMain': not all control paths return a value
+﻿  Scanning sources for module dependencies...
+  Graphics.cpp
   ChiiliTutorial.vcxproj -> D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\x64\Debug\LearnDirectX11.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

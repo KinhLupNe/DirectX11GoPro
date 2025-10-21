@@ -38,7 +38,8 @@ HINSTANCE Window::WindowClass::GetInstance() noexcept
 	return wndClass.hInst;
 }
 
-Window::Window(int width , int height , const wchar_t* name) 
+Window::Window(int width , int height , const wchar_t* name) :
+	width(width), height(height)
 {
 	RECT wr;
 	wr.left = 100;
@@ -46,11 +47,11 @@ Window::Window(int width , int height , const wchar_t* name)
 	wr.top = 100;
 	wr.bottom = height + wr.top;
 	// thằng này tính toán của kích thức của sổ thức, cái ta cần truyền vào của sổ của client
-	if (FAILED(AdjustWindowRect(&wr, WS_CAPTION | WS_MAXIMIZEBOX | WS_SYSMENU, FALSE)))
+	if (!AdjustWindowRect(&wr, WS_CAPTION | WS_MAXIMIZEBOX | WS_SYSMENU, FALSE))
 		//create window and get hwnd
 		throw CHWND_LAST_EXCEPT();
 	
-	HWND hWnd = CreateWindowExW(0,WindowClass::GetName(), name,
+	hWnd = CreateWindowExW(0,WindowClass::GetName(), name,
 		WS_CAPTION | WS_MAXIMIZEBOX | WS_SYSMENU,
 		CW_USEDEFAULT,CW_USEDEFAULT,wr.right - wr.left, wr.bottom - wr.top,
 		nullptr, nullptr,
@@ -65,11 +66,41 @@ Window::Window(int width , int height , const wchar_t* name)
 	//khi gọi createWindow, windows sẽ gửi msg = WM_NCCREATE tới winproc khi mà window tạo sắp xong.
 	// khi đó sẽ gửi WndProc thêm cả lParam chính là con trỏ tới CREATESTRUCT của đối tượng đó, cho nên sẽ lấy được con trỏ lCreatePrama hay chính là this ra
 	ShowWindow(hWnd, SW_SHOW);
+	// graphics object
+	pGfx = std::make_unique<Graphics>(hWnd);
 }
 
 Window::~Window()
 {
 	DestroyWindow(hWnd);
+}
+void Window::SetTitle(const std::wstring& title) const
+{
+	if (SetWindowTextW(hWnd, title.c_str()) == 0)
+	{
+		throw CHWND_LAST_EXCEPT();
+	}
+}
+std::optional<int> Window::ProcessMessages()
+{
+	MSG msg;
+	// while queues has mess, remove and dispatch them(but do not block when queue is empty)
+	while (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE))
+	{
+		if (msg.message == WM_QUIT)
+		{
+			// return optional wrapping int
+			return msg.wParam;
+		}
+		TranslateMessage(&msg);
+		DispatchMessageW(&msg);
+	}
+	// empty optional when not quit app
+	return {};
+}
+Graphics& Window::Gfx()
+{
+	return *pGfx;
 }
 LRESULT WINAPI Window::HandleMsgSetup(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -131,6 +162,66 @@ LRESULT Window::HandleMsg(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	//*******************END**************************
 
 	//****************MOUSE MESSAGES*******************
+	case WM_MOUSEMOVE:
+	{
+		const POINTS pt = MAKEPOINTS(lParam);
+		// in client region -> log move, log enter, capture mouse
+		if (pt.x > 0 && pt.x < width && pt.y>0 && pt.y < height)
+		{
+			mouse.OnMouseMove(pt.x, pt.y);
+			if (!mouse.IsInWindow())
+			{
+				SetCapture(hWnd);
+				mouse.OnMouseEnter();
+			}
+		}
+		// not in client regoin -> logmove . maintain captur if button down
+		else
+		{
+			if (wParam & (MK_LBUTTON | MK_RBUTTON))
+			{
+				mouse.OnMouseMove(pt.x, pt.y);
+			}
+			// button up-> release capture/ log event for leaving
+			else
+			{
+				ReleaseCapture();
+				mouse.OnMouseLeave();
+			}
+		}
+		break;
+	}
+	case WM_LBUTTONDOWN:
+	{
+		const POINTS pt = MAKEPOINTS(lParam);
+		mouse.OnLeftPressed(pt.x, pt.y);
+		break;
+	}
+	case WM_RBUTTONDOWN:
+	{
+		const POINTS pt = MAKEPOINTS(lParam);
+		mouse.OnRightPressed(pt.x, pt.y);
+		break;
+	}
+	case WM_LBUTTONUP:
+	{
+		const POINTS pt = MAKEPOINTS(lParam);
+		mouse.OnLeftReleased(pt.x, pt.y);
+		break;
+	}
+	case WM_RBUTTONUP:
+	{
+		const POINTS pt = MAKEPOINTS(lParam);
+		mouse.OnRightReleased(pt.x, pt.y);
+		break;
+	}
+	case WM_MOUSEWHEEL:
+	{
+		const POINTS pt = MAKEPOINTS(lParam);
+		const int delta = GET_WHEEL_DELTA_WPARAM(wParam);
+		mouse.OnWheelDelta(pt.x, pt.y, delta);
+		break;
+	}
 	
 	//****************END MOUSE***********************
 	}

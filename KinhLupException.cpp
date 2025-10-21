@@ -11,21 +11,24 @@ const char* KinhLupException::what() const noexcept
 	return whatBuffer.c_str();
 }
  const char* KinhLupException::GetType() const noexcept
-{
+ {
 	 return "Kinh Lup Exception !";
-}
+ }
+
  int KinhLupException::GetLine() const noexcept
  {
 	 return line;
-}
+ }
+
  const std::string& KinhLupException::GetFile() const noexcept
  {
 	 return file;
-}
+ }
+
  std::string KinhLupException::GetOriginString() const noexcept
  {
 	 std::ostringstream oss;
 	 oss << "File : " << file << std::endl
 		 << "Line : " << line;
 	 return oss.str();
-}
+ }

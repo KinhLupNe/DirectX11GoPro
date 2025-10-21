@@ -39,6 +39,11 @@ int Mouse::GetPosY() const noexcept
 	return y;
 }
 
+bool Mouse::IsInWindow() const noexcept
+{
+	return isInWindow;
+}
+
 
 bool Mouse::LeftIsPressed() const noexcept
 {
@@ -50,7 +55,7 @@ bool Mouse::RightIsPressed() const noexcept
 	return rightIsPressed;
 }
 
-std::optional<Mouse::Event> Mouse::Read() noexcept
+Mouse::Event Mouse::Read() noexcept
 {
 	if (buffer.size() > 0u)
 	{
@@ -58,7 +63,7 @@ std::optional<Mouse::Event> Mouse::Read() noexcept
 		buffer.pop();
 		return e;
 	}
-	return {};
+	return Mouse::Event();
 }
 
 void Mouse::Flush() noexcept
@@ -75,6 +80,20 @@ void Mouse::OnMouseMove(int newx, int newy) noexcept
 	y = newy;
 
 	buffer.push(Mouse::Event(Mouse::Event::Type::Move, *this));
+	TrimBuffer();
+}
+
+void Mouse::OnMouseLeave() noexcept
+{
+	isInWindow = false;
+	buffer.push(Mouse::Event(Mouse::Event::Type::Leave, *this));
+	TrimBuffer();
+}
+
+void Mouse::OnMouseEnter() noexcept
+{
+	isInWindow = true;
+	buffer.push(Mouse::Event(Mouse::Event::Type::Enter, *this));
 	TrimBuffer();
 }
 
@@ -129,5 +148,21 @@ void Mouse::TrimBuffer() noexcept
 	while (buffer.size() > bufferSize)
 	{
 		buffer.pop();
+	}
+}
+
+void Mouse::OnWheelDelta(int x, int y, int delta) noexcept
+{
+	wheelDeltaCarry += delta;
+
+	while (wheelDeltaCarry >= WHEEL_DELTA)
+	{
+		wheelDeltaCarry -= WHEEL_DELTA;
+		OnWheelUp(x, y);
+	}
+	while (wheelDeltaCarry <= -WHEEL_DELTA)
+	{
+		wheelDeltaCarry += WHEEL_DELTA;
+		OnWheelDown(x, y);
 	}
 }
