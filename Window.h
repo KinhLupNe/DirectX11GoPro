@@ -8,19 +8,30 @@
 
 class Window {
 public:
-	class Exception:public KinhLupException
+	class Exception :public KinhLupException
+	{
+		using KinhLupException::KinhLupException;
+	public:
+		static std::string TranslateErrorCode(HRESULT hr) noexcept;
+	};
+	class HrException : public Exception
 	{
 	public:
-		Exception(int line, const char* file, HRESULT hr) noexcept;
+		HrException(int line, const char* file, HRESULT hr) noexcept;
 		const char* what() const noexcept override;
-		virtual const char* GetType() const noexcept;
-		static std::string TranslateErrorCode(HRESULT hr) noexcept;
+		 const char* GetType() const noexcept override;
+		
 		HRESULT GetErrorCode() const noexcept;
-		std::string GetErrorString() const noexcept;
+		std::string GetErrorDescription() const noexcept;
 	private:
 		HRESULT hr;
 	};
-
+	class NoGfxException : public Exception
+	{
+	public :
+		using Exception::Exception;
+		const char* GetType() const noexcept override;
+	};
 private:
 	//singleton manages registration/cleanup of window class
 	class WindowClass {
@@ -61,5 +72,3 @@ private:
 	static int s_windowCount;
 };
 
-#define CHWND_EXCEPT(hr) Window::Exception(__LINE__,__FILE__,hr); 
-#define CHWND_LAST_EXCEPT(hr) Window::Exception(__LINE__,__FILE__,GetLastError()); 
