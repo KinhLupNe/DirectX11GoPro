@@ -1,5 +1,310 @@
 ﻿  Scanning sources for module dependencies...
-  Graphics.cpp
-  ChiiliTutorial.vcxproj -> D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\x64\Debug\LearnDirectX11.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+  dxerr.cpp
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\dxerr.cpp(66,22): warning C5104: found 'L#hrchk' in macro replacement list, did you mean 'L""#hrchk'?
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\dxerr.cpp(81,22): warning C5104: found 'L#hrchk' in macro replacement list, did you mean 'L""#hrchk'?
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(8,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(8,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(9,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(9,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(11,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(11,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(12,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(12,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(13,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(13,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(14,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(14,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(15,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(15,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(16,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(16,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(17,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(17,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(18,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(18,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(19,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(19,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(20,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(20,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(21,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(21,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(22,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(22,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(23,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(23,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(24,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(24,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(25,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(25,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(26,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(26,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(27,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(27,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(28,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(28,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(29,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(29,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(30,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(30,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(31,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(31,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(32,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(32,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(33,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(33,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(34,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(34,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(35,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(35,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(36,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(36,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(37,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(37,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(38,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(38,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(39,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(39,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(40,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(40,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(41,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(41,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(42,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(42,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(43,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(43,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(44,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(44,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(45,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(45,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(46,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(46,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(47,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(47,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(48,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(48,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(49,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(49,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(50,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(50,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(51,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(51,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(52,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(52,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(53,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(53,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(54,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(54,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(55,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(55,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(57,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(57,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(58,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(58,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(59,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(59,5): error C2143: syntax error: missing ';' before 'string'
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(60,5): error C2065: 'L': undeclared identifier
+  (compiling source file 'dxerr.cpp')
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\DXGetErrorString.inl(60,5): error C1003: error count exceeds 100; stopping compilation
+  (compiling source file 'dxerr.cpp')
+  

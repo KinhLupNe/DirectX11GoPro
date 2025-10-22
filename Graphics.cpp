@@ -1,14 +1,15 @@
-#include "Graphics.h"
-
+﻿#include "Graphics.h"
+ // Để sử dụng _com_error
 #include <cassert>
-
-
+#include "KinhLupException.h"
+#include<sstream>
+  
 Graphics::Graphics(HWND hWnd)
 {
 	DXGI_SWAP_CHAIN_DESC sd = {};
 	sd.BufferDesc.Width = 0;
 	sd.BufferDesc.Height = 0;
-	sd.BufferDesc.Format = DXGI_FORMAT_B8G8R8X8_UNORM;
+	sd.BufferDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;
 	sd.BufferDesc.RefreshRate.Denominator = 0;
 	sd.BufferDesc.RefreshRate.Numerator = 0;
 	sd.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
@@ -36,10 +37,26 @@ Graphics::Graphics(HWND hWnd)
 		nullptr,
 		&pContext
 	);
+	
+	// truy cập vào nguồn tài nguyên texture của swapchain(back buffer)
+	// nắm handle của backbuffer
+	ID3D11Resource* pBackBuffer = nullptr;
+	pSwap->GetBuffer(0, __uuidof(ID3D11Resource), reinterpret_cast<void**>(&pBackBuffer));
+	pDevice->CreateRenderTargetView(
+		pBackBuffer,
+		nullptr,
+		&pTarget
+	);
+	pBackBuffer->Release();
 }
 
 Graphics::~Graphics()
 {
+	if (pTarget != nullptr)
+	{
+		pTarget->Release();
+	}
+
 	if (pContext != nullptr)
 	{
 		pContext->Release();
@@ -58,3 +75,4 @@ void Graphics::EndFrame()
 {
 	pSwap->Present(1u, 0u);
 }
+
