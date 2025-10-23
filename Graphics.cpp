@@ -91,10 +91,6 @@ void Graphics::EndFrame()
 }
 
 
-
-
-
-
 //Graphics Exception Stuff
 Graphics::HrException::HrException(int line, const char* file, HRESULT hr, std::vector<std::string> infoMsgs) noexcept
 	:Exception(line, file), hr(hr) {
