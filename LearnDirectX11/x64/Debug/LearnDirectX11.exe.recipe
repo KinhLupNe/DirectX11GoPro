@@ -5,7 +5,14 @@
       <FullPath>D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\x64\Debug\LearnDirectX11.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\PixelShader.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\VertexShader.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>

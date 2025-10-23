@@ -1,6 +1,20 @@
 ﻿  Scanning sources for module dependencies...
+  App.cpp
+  DxgiInfoManager.cpp
   Graphics.cpp
-D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Graphics.cpp(11,9): warning C4005: 'GFX_DEVICE_REMOVED_EXCEPT': macro redefinition
+  Window.cpp
+  Winmain.cpp
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\ChiliWin.h(4,9): warning C4005: '_WIN32_WINNT': macro redefinition
+  (compiling source file 'Winmain.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\sdkddkver.h(228,10):
+      see previous definition of '_WIN32_WINNT'
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\ChiliWin.h(47,9): warning C4005: 'STRICT': macro redefinition
+  (compiling source file 'Winmain.cpp')
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared\minwindef.h(23,9):
+      see previous definition of 'STRICT'
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Graphics.cpp(12,9): warning C4005: 'GFX_DEVICE_REMOVED_EXCEPT': macro redefinition
       D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\GraphicsThrowMacros.h(11,9):
       see previous definition of 'GFX_DEVICE_REMOVED_EXCEPT'
   
@@ -8,7 +22,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
   (compiling source file 'Graphics.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xutility(4813,18):
       the template instantiation context (the oldest one first) is
-          D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Graphics.cpp(17,15):
+          D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Graphics.cpp(18,15):
           see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_const_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
           with
           [
@@ -16,7 +30,7 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
               _Iter=std::_String_const_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
               _Alloc=std::allocator<char>
           ]
-              D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Graphics.cpp(17,15):
+              D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Graphics.cpp(18,15):
               see the first reference to 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string' in 'WStringToString'
           C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xstring(812,17):
           see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct_from_iter<const wchar_t*,const wchar_t*,_Size_type>(_Iter,const _Sent,_Size)' being compiled
@@ -37,6 +51,32 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
               _SizeTy=unsigned __int64
           ]
   
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(82,17): warning C4244: 'initializing': conversion from 'WPARAM' to 'int', possible loss of data
+  (compiling source file 'Window.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(82,17):
+      the template instantiation context (the oldest one first) is
+          D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Window.cpp(95,4):
+          see reference to function template instantiation 'std::optional<int>::optional<WPARAM&,0>(_Ty2) noexcept' being compiled
+          with
+          [
+              _Ty2=WPARAM &
+          ]
+              D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Window.cpp(95,4):
+              see the first reference to 'std::optional<int>::optional' in 'Window::ProcessMessages'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\optional(272,18):
+          see reference to function template instantiation 'std::_Optional_construct_base<_Ty>::_Optional_construct_base<WPARAM&>(std::in_place_t,WPARAM &)' being compiled
+          with
+          [
+              _Ty=int
+          ]
+          D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Window.cpp(346,1):
+          see reference to function template instantiation 'std::_Optional_destruct_base<_Ty,true>::_Optional_destruct_base<WPARAM&>(std::in_place_t,WPARAM &) noexcept' being compiled
+          with
+          [
+              _Ty=int
+          ]
+  
+D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\Winmain.cpp(34,1): warning C4715: 'WinMain': not all control paths return a value
   ChiiliTutorial.vcxproj -> D:\Roadmap\Graphic API\D3D11\Learn\ChiiliTutorial\x64\Debug\LearnDirectX11.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

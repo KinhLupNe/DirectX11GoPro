@@ -7,6 +7,7 @@
 #include <string>
 #include <Windows.h>  
 #include "GraphicsThrowMacros.h"
+#include "d3dcompiler.h"
 #define GFX_THROW_FAILED(hrcall) if(FAILED(hr =(hrcall))) throw Graphics::HrException(__LINE__,__FILE__,hrcall)
 #define GFX_DEVICE_REMOVED_EXCEPT(hr) Graphics::DeviceRemovedException(__LINE__,__FILE__,hr)
 
@@ -90,6 +91,105 @@ void Graphics::EndFrame()
 	}
 }
 
+ void Graphics::DrawTestTriangle()
+{
+	namespace wrl = Microsoft::WRL;
+	HRESULT hr;
+
+	struct Vertex
+	{
+		float x;
+		float y;
+	};
+
+	// Create vertex buffer
+	const Vertex vertices[] = {
+		{ 0.0f, 0.5f },
+		{ 0.5f,-0.5f },
+		{ -0.5f, -0.5f }
+	};
+
+	wrl::ComPtr<ID3D11Buffer> pVertexBuffer;
+	
+	D3D11_BUFFER_DESC bd = {};
+	bd.ByteWidth = sizeof(vertices);
+	bd.Usage = D3D11_USAGE_DEFAULT;
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bd.CPUAccessFlags = 0u;
+	bd.MiscFlags = 0u;
+	bd.StructureByteStride = sizeof(Vertex);
+
+	D3D11_SUBRESOURCE_DATA sd = {};
+	sd.pSysMem = vertices;
+	GFX_THROW_INFO(pDevice->CreateBuffer(&bd, &sd, &pVertexBuffer));
+	
+	// Bind vertex buffer to pipeline
+	 UINT stride = sizeof(Vertex);
+	 UINT offset = 0u;
+	pContext->IASetVertexBuffers(0u, 1u, pVertexBuffer.GetAddressOf(), &stride, &offset);
+	
+	//Create pixel shader
+	wrl::ComPtr<ID3D11PixelShader> pPixelShader;
+	wrl::ComPtr<ID3DBlob> pBlob;
+	GFX_THROW_INFO(D3DReadFileToBlob(L"PixelShader.cso", &pBlob));
+	GFX_THROW_INFO(pDevice->CreatePixelShader(pBlob->GetBufferPointer(), pBlob->GetBufferSize(), nullptr, &pPixelShader));
+
+	//Bind  pixel shader to pipeline 
+	pContext->PSSetShader(pPixelShader.Get(), 0u, 0u);
+
+	
+
+	// Create vertex shader
+	wrl::ComPtr<ID3D11VertexShader> pVertexShader;
+	
+	GFX_THROW_INFO(D3DReadFileToBlob(L"VertexShader.cso",&pBlob));
+	GFX_THROW_INFO(pDevice->CreateVertexShader(pBlob->GetBufferPointer(),pBlob->GetBufferSize(), nullptr,&pVertexShader));
+
+	//Bind vertex shader to pipeline
+	pContext->VSSetShader(pVertexShader.Get(), 0u, 0u);
+	
+
+
+
+	//input (vertex) layout(2d position only)
+	wrl::ComPtr<ID3D11InputLayout> pInputLayout;
+	const D3D11_INPUT_ELEMENT_DESC ied[] = {
+		{"POSITION",0,DXGI_FORMAT_R32G32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA,0},
+	};
+	GFX_THROW_INFO(pDevice->CreateInputLayout(
+		ied, (UINT)std::size(ied),
+		pBlob->GetBufferPointer(),
+		pBlob->GetBufferSize(),
+		&pInputLayout
+	));
+
+	// Bind vertex shader to pipeline
+	pContext->IASetInputLayout(pInputLayout.Get());
+
+
+	//Bind render target to pipeline
+	pContext->OMSetRenderTargets(1u,pTarget.GetAddressOf(), nullptr);
+
+
+	// configure viewport
+	D3D11_VIEWPORT vp;
+	vp.Width = 800;
+	vp.Height = 600;
+	vp.MinDepth = 0;
+	vp.MaxDepth = 1;
+	vp.TopLeftX = 0;
+	vp.TopLeftY = 0;
+
+	//bind viewport to pipeline
+	pContext->RSSetViewports(1u, &vp);
+
+
+	// Set primitive topology to triangle list
+	pContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	GFX_THROW_INFO_ONLY(pContext->Draw((UINT)std::size(vertices), 0u));
+}
+
 
 //Graphics Exception Stuff
 Graphics::HrException::HrException(int line, const char* file, HRESULT hr, std::vector<std::string> infoMsgs) noexcept
@@ -120,6 +220,7 @@ const char* Graphics::HrException::what() const noexcept
 	return whatBuffer.c_str();
 
 }
+
 const char* Graphics::HrException::GetType() const noexcept
 {
 	return "Kinh Lup Graphics HrException";
@@ -149,5 +250,44 @@ std::string Graphics::HrException::GetErrorInfo() const noexcept
 
 const char* Graphics::DeviceRemovedException::GetType() const noexcept
 {
-	return "Chili Graphics Exception [Device Removed] (DXGI_ERROR_DEVICE_REMOVED)";
+	return "Kinhlup Graphics Exception [Device Removed] (DXGI_ERROR_DEVICE_REMOVED)";
+}
+
+
+Graphics::InfoException::InfoException(int line, const char* file, std::vector<std::string> infoMsgs) noexcept
+	:
+	Exception(line, file)
+{
+	// join all info messages with newlines into single string
+	for (const auto& m : infoMsgs)
+	{
+		info += m;
+		info.push_back('\n');
+	}
+	// remove final newline if exists
+	if (!info.empty())
+	{
+		info.pop_back();
+	}
+}
+
+
+const char* Graphics::InfoException::what() const noexcept
+{
+	std::ostringstream oss;
+	oss << GetType() << std::endl
+		<< "\n[Error Info]\n" << GetErrorInfo() << std::endl << std::endl;
+	oss << GetOriginString();
+	whatBuffer = oss.str();
+	return whatBuffer.c_str();
+}
+
+const char* Graphics::InfoException::GetType() const noexcept
+{
+	return "Kinh lup Graphics Info Exception";
+}
+
+std::string Graphics::InfoException::GetErrorInfo() const noexcept
+{
+	return info;
 }
