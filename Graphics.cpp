@@ -110,7 +110,6 @@ void Graphics::EndFrame()
 	};
 
 	wrl::ComPtr<ID3D11Buffer> pVertexBuffer;
-	
 	D3D11_BUFFER_DESC bd = {};
 	bd.ByteWidth = sizeof(vertices);
 	bd.Usage = D3D11_USAGE_DEFAULT;
@@ -122,37 +121,17 @@ void Graphics::EndFrame()
 	D3D11_SUBRESOURCE_DATA sd = {};
 	sd.pSysMem = vertices;
 	GFX_THROW_INFO(pDevice->CreateBuffer(&bd, &sd, &pVertexBuffer));
-	
+
 	// Bind vertex buffer to pipeline
 	 UINT stride = sizeof(Vertex);
 	 UINT offset = 0u;
 	pContext->IASetVertexBuffers(0u, 1u, pVertexBuffer.GetAddressOf(), &stride, &offset);
 	
-	//Create pixel shader
-	wrl::ComPtr<ID3D11PixelShader> pPixelShader;
-	wrl::ComPtr<ID3DBlob> pBlob;
-	GFX_THROW_INFO(D3DReadFileToBlob(L"PixelShader.cso", &pBlob));
-	GFX_THROW_INFO(pDevice->CreatePixelShader(pBlob->GetBufferPointer(), pBlob->GetBufferSize(), nullptr, &pPixelShader));
-
-	//Bind  pixel shader to pipeline 
-	pContext->PSSetShader(pPixelShader.Get(), 0u, 0u);
-
-	
-
-	// Create vertex shader
-	wrl::ComPtr<ID3D11VertexShader> pVertexShader;
-	
-	GFX_THROW_INFO(D3DReadFileToBlob(L"VertexShader.cso",&pBlob));
-	GFX_THROW_INFO(pDevice->CreateVertexShader(pBlob->GetBufferPointer(),pBlob->GetBufferSize(), nullptr,&pVertexShader));
-
-	//Bind vertex shader to pipeline
-	pContext->VSSetShader(pVertexShader.Get(), 0u, 0u);
-	
-
 
 
 	//input (vertex) layout(2d position only)
 	wrl::ComPtr<ID3D11InputLayout> pInputLayout;
+	wrl::ComPtr<ID3DBlob> pBlob;
 	const D3D11_INPUT_ELEMENT_DESC ied[] = {
 		{"POSITION",0,DXGI_FORMAT_R32G32_FLOAT,0,0,D3D11_INPUT_PER_VERTEX_DATA,0},
 	};
@@ -163,12 +142,35 @@ void Graphics::EndFrame()
 		&pInputLayout
 	));
 
-	// Bind vertex shader to pipeline
+	// Bind Inputlayout to pipeline
 	pContext->IASetInputLayout(pInputLayout.Get());
 
 
-	//Bind render target to pipeline
-	pContext->OMSetRenderTargets(1u,pTarget.GetAddressOf(), nullptr);
+
+	// Create vertex shader
+	wrl::ComPtr<ID3D11VertexShader> pVertexShader;
+
+	GFX_THROW_INFO(D3DReadFileToBlob(L"VertexShader.cso", &pBlob));
+	GFX_THROW_INFO(pDevice->CreateVertexShader(pBlob->GetBufferPointer(), pBlob->GetBufferSize(), nullptr, &pVertexShader));
+
+	//Bind vertex shader to pipeline
+	pContext->VSSetShader(pVertexShader.Get(), 0u, 0u);
+
+
+
+	// Bind primitive topology type to  pipeline
+	pContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+
+
+	//Create pixel shader
+	wrl::ComPtr<ID3D11PixelShader> pPixelShader;
+	GFX_THROW_INFO(D3DReadFileToBlob(L"PixelShader.cso", &pBlob));
+	GFX_THROW_INFO(pDevice->CreatePixelShader(pBlob->GetBufferPointer(), pBlob->GetBufferSize(), nullptr, &pPixelShader));
+
+	//Bind  pixel shader to pipeline 
+	pContext->PSSetShader(pPixelShader.Get(), 0u, 0u);
+
 
 
 	// configure viewport
@@ -180,12 +182,14 @@ void Graphics::EndFrame()
 	vp.TopLeftX = 0;
 	vp.TopLeftY = 0;
 
-	//bind viewport to pipeline
+	//bind viewport to pipeline(rasterixation)
 	pContext->RSSetViewports(1u, &vp);
 
 
-	// Set primitive topology to triangle list
-	pContext->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	//Bind render target to pipeline
+	pContext->OMSetRenderTargets(1u, pTarget.GetAddressOf(), nullptr);
+
 
 	GFX_THROW_INFO_ONLY(pContext->Draw((UINT)std::size(vertices), 0u));
 }
